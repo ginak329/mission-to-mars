@@ -17,9 +17,9 @@ def index():
 
 @app.route("/scrape")
 def scrape():
-    import scrape_mars_test
+    import scrape_mars
     mars = client.db.mars 
-    mars_data = scrape_mars_test.scrape()
+    mars_data = scrape_mars.scrape()
     mars.replace_one({}, mars_data, upsert=True)
     return redirect("http://localhost:6969/", code=302)
 
